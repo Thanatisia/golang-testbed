@@ -49,3 +49,11 @@
                 + Added new golang module definition file 'go.mod'
                 + Added new test module source file 'test.go' for testing (Unused)
 
+#### 1633H
+- New
+    - Added new document 'BUILD.md' in 'docs/' to perform a quickstart setup working golang project (package) workspace structure/hierarchy
+
+- Updates
+    - Migrated 'GENERATING.md' to 'docs/'
+        + Added setup information
+
