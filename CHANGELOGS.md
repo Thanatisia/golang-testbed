@@ -57,3 +57,9 @@
     - Migrated 'GENERATING.md' to 'docs/'
         + Added setup information
 
+#### 1647H
+- Updates
+    - Migrated 'BUILD.md' to 'docs/'
+        + Fixed bash shellscript block and cat-EOF output
+
+

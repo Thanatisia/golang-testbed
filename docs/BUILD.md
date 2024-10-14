@@ -118,27 +118,27 @@
 
 - (Optional) Generate a template main.go entry point source file
     ```bash
-cat <<EOF >> main.go
-// Declare the 'main' special package
-package main
+    cat <<EOF >> main.go
+    // Declare the 'main' special package
+    package main
 
-// Import dependencies (libraries/packages/modules)
-import (
-    "fmt"
-    "os"
+    // Import dependencies (libraries/packages/modules)
+    import (
+        "fmt"
+        "os"
 
-    // To import a package with an alias name
-    variable_alias "package/module/your-library-here"
+        // To import a package with an alias name
+        variable_alias "package/module/your-library-here"
 
-    // To import a package from a git remote repository server (i.e. github)
-    variable_alias "github.com/repo-author/repo-name"
-)
+        // To import a package from a git remote repository server (i.e. github)
+        variable_alias "github.com/repo-author/repo-name"
+    )
 
-// Define the main entry point function
-func main() {
-    fmt.Println("Hello World")
-}
-EOF
+    // Define the main entry point function
+    func main() {
+        fmt.Println("Hello World")
+    }
+    EOF
     ```
 
 > Adding/Creating new local modules to the package
@@ -308,27 +308,27 @@ EOF
 
 - (Optional) Generate a template main.go entry point source file
     ```bash
-cat <<EOF >> main.go
-// Declare the 'main' special package
-package main
+    cat <<EOF >> main.go
+    // Declare the 'main' special package
+    package main
 
-// Import dependencies (libraries/packages/modules)
-import (
-    "fmt"
-    "os"
+    // Import dependencies (libraries/packages/modules)
+    import (
+        "fmt"
+        "os"
 
-    // To import a package with an alias name
-    variable_alias "package/module/your-library-here"
+        // To import a package with an alias name
+        variable_alias "package/module/your-library-here"
 
-    // To import a package from a git remote repository server (i.e. github)
-    variable_alias "github.com/repo-author/repo-name"
-)
+        // To import a package from a git remote repository server (i.e. github)
+        variable_alias "github.com/repo-author/repo-name"
+    )
 
-// Define the main entry point function
-func main() {
-    fmt.Println("Hello World")
-}
-EOF
+    // Define the main entry point function
+    func main() {
+        fmt.Println("Hello World")
+    }
+    EOF
     ```
 
 - Map the new (entry point) module within the package to the local relative path containing the module you created
