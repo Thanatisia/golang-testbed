@@ -1,0 +1,9 @@
+# Files/Folders/Directories to be ignored by git
+
+## Files
+*.log
+go.sum
+
+## Folders
+dist/
+
