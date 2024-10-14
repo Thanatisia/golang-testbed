@@ -62,4 +62,20 @@
     - Migrated 'BUILD.md' to 'docs/'
         + Fixed bash shellscript block and cat-EOF output
 
+#### 1701H
+- Updates
+    - Updated document 'GENERATING.md' in 'docs/'
+        + Renamed package from 'testbench_practiceground' => 'golang_testbed'
+    - Updated package module definition file 'go.mod'
+        + Renamed package from 'testbench_practiceground' => 'golang_testbed'
+    - Updated golang entry point source file 'main.go'
+        + Renamed package and modules from 'testbench_practiceground' => 'golang_testbed'
+    - Updated module definition file 'go.mod' in 'src/cmd/'
+        + Renamed package and modules from 'testbench_practiceground' => 'golang_testbed'
+    - Updated module definition file 'go.mod' in 'src/modules/features/sqlite3db/'
+        + Renamed package and modules from 'testbench_practiceground' => 'golang_testbed'
+    - Updated module definition file 'go.mod' in 'src/modules/features/system_cmd_execution/'
+        + Renamed package and modules from 'testbench_practiceground' => 'golang_testbed'
+    - Updated module definition file 'go.mod' in 'src/modules/tutorials/hello/'
+        + Renamed package and modules from 'testbench_practiceground' => 'golang_testbed'
 

@@ -42,7 +42,7 @@ git checkout -b main
 git remote add origin [remote-repository-server-url]
 
 # Initialize a new 'go.mod' (go module definition file) for the package
-go mod init golang-testbed
+go mod init golang_testbed
 go mod tidy
 
 # (Optional) Generate a template main.go entry point source file
@@ -76,12 +76,12 @@ EOF
 cd /path/to/golang-testbed
 mkdir -pv ./path/to/module/name
 cd ./path/to/module/name
-go mod init golang-testbed/module-name
+go mod init golang_testbed/module-name
 go mod tidy
 
 # Map the new module within the package to the local relative path containing the module you created
 cd /path/to/golang-testbed
-echo -e "replace golang-testbed/module-name => ./path/to/module/name" >> go.mod
+echo -e "replace golang_testbed/module-name => ./path/to/module/name" >> go.mod
 go mod tidy
 ```
 
@@ -101,12 +101,12 @@ go mod tidy
 cd /path/to/golang-testbed
 mkdir -pv ./path/to/module/name
 cd ./path/to/module/name
-go mod init golang-testbed/module-name
+go mod init golang_testbed/module-name
 go mod tidy
 
 # Create an indirect Map/Link of the module `[package-name]/[module-name]` into your project root directory's go.mod file
 cd /path/to/target/module/go.mod
-echo -e "replace golang-testbed/module-name => ./path/to/entry-point-module" >> go.mod
+echo -e "replace golang_testbed/module-name => ./path/to/entry-point-module" >> go.mod
 go mod tidy
 ```
 

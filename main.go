@@ -10,10 +10,10 @@ import (
 	"strings"
 
 	// Modules
-	argparse "testbench_practiceground/cmd"
+	argparse "golang_testbed/cmd"
 	// sqlite3db "testbench_practiceground/sqlite3db"
 	// hello_world "testbench_practiceground/hello"
-	syscallexec "testbench_practiceground/system_cmd_execution"
+	syscallexec "golang_testbed/system_cmd_execution"
 )
 
 // Define main() function
