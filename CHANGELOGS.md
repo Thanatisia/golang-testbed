@@ -2,6 +2,7 @@
 
 ## Table of Contents
 + [2024-10-14](#2024-10-14)
++ [2024-10-15](#2024-10-15)
 
 ## Entries
 ### 2024-10-14
@@ -78,4 +79,21 @@
         + Renamed package and modules from 'testbench_practiceground' => 'golang_testbed'
     - Updated module definition file 'go.mod' in 'src/modules/tutorials/hello/'
         + Renamed package and modules from 'testbench_practiceground' => 'golang_testbed'
+
+### 2024-10-15
+#### 1014H
+- New
+    - Added new module directory 'jsonio' in 'src/modules/features/' to test JSON Encoding/Parsing
+        - Added new go module definition file 'go.mod'
+        - Added new golang module library file 'jsonio.go'
+- Updates
+    - Updated golang package module definition file 'go.mod'
+        + Added 'replace' alias for new module 'jsonio'
+        + go mod tidy
+    - Updated golang source file 'main.go'
+        + Added new import for jsonio
+        + Added a new optional switch case for verbose mode
+        + Added new positional keywords
+    - Updated golang source file 'cli.go' in 'src/cmd'
+        + Fixed bug where separating parameters with a space delimiter (' ') doesnt keep the value
 
