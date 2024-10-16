@@ -120,7 +120,7 @@ func main() {
                 switch curr_element {
                     case "hello":
                         fmt.Println("World")
-                    case "execute-system-command-process":
+                    case "execute-system-command-serial":
                         fmt.Println("Verbose: ", verbose)
 
                         // Check if "syscall-set-command" is in 'opt_with_Arguments' and Obtain the command line string to execute

@@ -3,6 +3,7 @@
 ## Table of Contents
 + [2024-10-14](#2024-10-14)
 + [2024-10-15](#2024-10-15)
++ [2024-10-16](#2024-10-16)
 
 ## Entries
 ### 2024-10-14
@@ -96,4 +97,14 @@
         + Added new positional keywords
     - Updated golang source file 'cli.go' in 'src/cmd'
         + Fixed bug where separating parameters with a space delimiter (' ') doesnt keep the value
+
+### 2024-10-16
+#### 1726H
+- New
+    + Added new document 'USAGE.md' in 'docs/' for Post-setup/build usage
+- Updates
+    - Update document 'README.md'
+        + Added installation and uninstallation steps
+    - Updated golang source file 'main.go'
+        + Updated positional action's keyword identifier
 
