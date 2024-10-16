@@ -10,10 +10,11 @@ import (
 	"strings"
 
 	// Modules
-	argparse "testbench_practiceground/cmd"
+	argparse "golang_testbed/cmd"
 	// sqlite3db "testbench_practiceground/sqlite3db"
 	// hello_world "testbench_practiceground/hello"
-	syscallexec "testbench_practiceground/system_cmd_execution"
+	syscallexec "golang_testbed/system_cmd_execution"
+    "golang_testbed/jsonio"
 )
 
 // Define main() function
@@ -21,6 +22,9 @@ func main() {
     // hello_world.Hello();
     // sqlite3db.ApplicationLogic();
     opts_Flags, opt_with_Arguments, positionals, error_msg := argparse.ParseArguments()
+
+    // Initialize Variables
+    var verbose bool = false
 
     // Error checking
     if len(error_msg) > 0 {
@@ -63,6 +67,9 @@ func main() {
                         os.Exit(0)
                     case "help":
                         fmt.Println("Display Help Message")
+                    case "verbose":
+                        // Verify/validate verbose mode
+                        verbose = opts_Flags["verbose"]
                     case "version":
                         fmt.Println("Display Application Version Information")
                     default:
@@ -113,6 +120,77 @@ func main() {
                 switch curr_element {
                     case "hello":
                         fmt.Println("World")
+                    case "execute-system-command-serial":
+                        fmt.Println("Verbose: ", verbose)
+
+                        // Check if "syscall-set-command" is in 'opt_with_Arguments' and Obtain the command line string to execute
+                        if cmd_str, is_found := opt_with_Arguments["syscall-set-command"]; is_found {
+                            fmt.Println("Command: ", cmd_str)
+
+                            // Check if 'syscall-set-arguments" is in 'opt_with_Arguments' and obtain the arguments
+                            if cmd_args, is_found := opt_with_Arguments["syscall-set-arguments"]; is_found {
+                                // Split the cmd_args string into a list
+                                var cmd_args_split []string = strings.Split(cmd_args, " ")
+
+                                fmt.Println("Arguments: ", cmd_args_split)
+
+                                syscallexec.ExecSysCall(cmd_str, cmd_args_split...)
+                                // syscallexec.ExecProcess(cmd_str, verbose, cmd_args_split...)
+                            } else {
+                                syscallexec.ExecSysCall(cmd_str)
+                                // syscallexec.ExecProcess(cmd_str, verbose)
+                            }
+                        }
+                    case "execute-system-command-realtime":
+                        fmt.Println("Verbose: ", verbose)
+
+                        // Check if "syscall-set-command" is in 'opt_with_Arguments' and Obtain the command line string to execute
+                        if cmd_str, is_found := opt_with_Arguments["syscall-set-command"]; is_found {
+                            fmt.Println("Command: ", cmd_str)
+
+                            // Check if 'syscall-set-arguments" is in 'opt_with_Arguments' and obtain the arguments
+                            if cmd_args, is_found := opt_with_Arguments["syscall-set-arguments"]; is_found {
+                                // Split the cmd_args string into a list
+                                var cmd_args_split []string = strings.Split(cmd_args, " ")
+
+                                fmt.Println("Arguments: ", cmd_args_split)
+
+                                syscallexec.ExecSysCallRealtime(cmd_str, verbose, cmd_args_split...)
+                            } else {
+                                syscallexec.ExecSysCallRealtime(cmd_str, verbose)
+                            }
+                        }
+                    case "print-json":
+                        /*
+                         * Perform JSON Parsing
+                         */
+                        var json_fpathname string = "test.json"
+
+                        // Check if a JSON file is found
+                        if _, err := os.Stat(json_fpathname); err == nil {
+                            // Open JSON file
+                            var json_fptr *os.File = jsonio.OpenFile(json_fpathname)
+
+                            // Read the opened JSON file
+                            jsonio.ReadJSON(json_fptr)
+
+                            // Get the JSON file contents
+                            //var json_fstruct jsonio.JSONStruct = jsonio.GetJSONStruct()
+                            var json_fcontents = jsonio.GetJSONContents()
+
+                            // Printing out JSON file contents
+                            fmt.Println("")
+                            fmt.Println("JSON File Contents:")
+                            fmt.Println("")
+                            for k,v := range json_fcontents {
+                                fmt.Println(k, ":", v)
+                            }
+
+                            // Close the opened JSON file after usage
+                            jsonio.CloseFile(json_fptr)
+                        } else {
+                            fmt.Println(err)
+                        }
                     default:
                         fmt.Println("Invalid optional argument provided: ", curr_element)
                 }
@@ -121,32 +199,6 @@ func main() {
             fmt.Println("")
             fmt.Println("No positionals provided.")
             fmt.Println("")
-        }
-    }
-
-    // Verify/validate verbose mode
-    var verbose bool = opts_Flags["verbose"]
-
-    fmt.Println("Verbose: ", verbose)
-
-    // Check if "syscall-set-command" is in 'opt_with_Arguments' and Obtain the command line string to execute
-    if cmd_str, is_found := opt_with_Arguments["syscall-set-command"]; is_found {
-        fmt.Println("Command: ", cmd_str)
-
-        // Check if 'syscall-set-arguments" is in 'opt_with_Arguments' and obtain the arguments
-        if cmd_args, is_found := opt_with_Arguments["syscall-set-arguments"]; is_found {
-            // Split the cmd_args string into a list
-            var cmd_args_split []string = strings.Split(cmd_args, " ")
-
-            fmt.Println("Arguments: ", cmd_args_split)
-
-            // syscallexec.ExecSysCall(cmd_str, cmd_args_split...)
-            syscallexec.ExecSysCallRealtime(cmd_str, verbose, cmd_args_split...)
-            // syscallexec.ExecProcess(cmd_str, verbose, cmd_args_split...)
-        } else {
-            // syscallexec.ExecSysCall(cmd_str)
-            syscallexec.ExecSysCallRealtime(cmd_str, verbose)
-            // syscallexec.ExecProcess(cmd_str, verbose)
         }
     }
 }

@@ -82,7 +82,7 @@ func ParseArguments() (map[string]bool, map[string]string, []string, []string) {
 
                             // Data Validation: Null Value and Valid Value Check
                             if tmp_val != "" {
-                                res_args_opt_with_Value["syscall-set-command"] = ""
+                                res_args_opt_with_Value["syscall-set-command"] = tmp_val
 
                                 // Increment the index counter by 1 to jump to the next argument
                                 i += 1
@@ -108,7 +108,7 @@ func ParseArguments() (map[string]bool, map[string]string, []string, []string) {
 
                             // Data Validation: Null Value and Valid Value Check
                             if tmp_val != "" {
-                                res_args_opt_with_Value["syscall-set-arguments"] = ""
+                                res_args_opt_with_Value["syscall-set-arguments"] = tmp_val
 
                                 // Increment the index counter by 1 to jump to the next argument
                                 i += 1

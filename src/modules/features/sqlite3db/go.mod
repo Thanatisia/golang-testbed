@@ -1,4 +1,4 @@
-module testbench_practiceground/sqlite3db
+module golang_testbed/sqlite3db
 
 go 1.21.5
 

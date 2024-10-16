@@ -73,10 +73,26 @@ The contents may also become a massive GUI with buttons to visualize all the fea
     go install .
     ```
 
+- Install the binary to a custom installation location (using `PREFIX`)
+    - Notes
+        - `PREFIX` refers to the installation root directory
+            - in linux, it is usually '/usr/local'
+    ```bash
+    cp dist/bin/executable-name $PREFIX/bin
+    ```
+
 ### Uninstallation
 - Uninstall the binary from the go binary directory (`<GOBIN>|<GOPATH>/bin`)
     ```bash
     rm [GOBIN]/executable-name
+    ```
+
+- Uninstall the binary from a custom installation location (using `PREFIX`)
+    - Notes
+        - `PREFIX` refers to the installation root directory
+            - in linux, it is usually '/usr/local'
+    ```bash
+    rm $PREFIX/bin/executable-name
     ```
 
 ## Documentations
