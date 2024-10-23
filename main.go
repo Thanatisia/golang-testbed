@@ -11,7 +11,7 @@ import (
 
 	// Modules
 	argparse "golang_testbed/cmd"
-	// sqlite3db "testbench_practiceground/sqlite3db"
+	sqlite3db "golang_testbed/sqlite3db"
 	// hello_world "testbench_practiceground/hello"
 	syscallexec "golang_testbed/system_cmd_execution"
     "golang_testbed/jsonio"
@@ -191,6 +191,9 @@ func main() {
                         } else {
                             fmt.Println(err)
                         }
+                    case "start-todolist-webserver":
+                        // Startup the SQLite3 TODO list webserver
+                        sqlite3db.StartWebServer("", -1, "", "", "")
                     default:
                         fmt.Println("Invalid optional argument provided: ", curr_element)
                 }
