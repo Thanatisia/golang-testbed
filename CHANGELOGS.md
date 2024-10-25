@@ -5,6 +5,7 @@
 + [2024-10-15](#2024-10-15)
 + [2024-10-16](#2024-10-16)
 + [2024-10-23](#2024-10-23)
++ [2024-10-25](#2024-10-25)
 
 ## Entries
 ### 2024-10-14
@@ -125,5 +126,9 @@
         + Updated version of external module 'mattn/go-sqlite3'
     - Migrated 'app.go' and 'sqlite3db.go' in 'src/modules/features/sqlite3db' => 'src/modules/features/sqlite3db/tests' temporarily
 
-
+### 2024-10-25
+#### 1406H
+- New
+    - Added new directory 'explanations' in 'docs/'
+        + Added new document 'sqlite3db.md' explaining how the library works
 
