@@ -4,14 +4,14 @@
 package sqlite3db
 
 import (
-    "database/sql"
-    // "errors"
-    // "log"
+    "database/sql"  // Built-in system library/package for SQL relational database interactions
+    // "errors"     // Built-in system library/package for error checking
+    // "log"        // Built-in system library/package for logging
     "sync"
-    // "fmt"
+    // "fmt"        // Built-in system library/package for formatted I/O
 
-
-	_ "github.com/mattn/go-sqlite3"
+    // External Dependencies
+	_ "github.com/mattn/go-sqlite3" // SQLite driver
 )
 
 /*
